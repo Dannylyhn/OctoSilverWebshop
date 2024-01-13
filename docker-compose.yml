@@ -1,0 +1,22 @@
+﻿services:
+  store.api:
+    image: store.api
+    restart: always
+    build:
+      context: .
+      dockerfile: SilverOctoWebshop/Store.API/Dockerfile
+    ports:
+      - 80:80
+    environment:
+      - DBContext__ConnectionString="Host=localhost;Port=5432;Database=POSTGRES_DB;User Id=POSTGRES_USER;Password=POSTGRES_PASSWORD;"
+    depends_on: 
+      - postgres
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: default
+      POSTGRES_DB: Webshop
+    ports:
+      - "5432:5432"
