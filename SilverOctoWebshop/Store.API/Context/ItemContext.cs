@@ -15,5 +15,7 @@ public class ItemContext : DbContext
             entity.Property(e => e.Name);
             entity.Property(e => e.Price);
         });
+
+        
     }
 }

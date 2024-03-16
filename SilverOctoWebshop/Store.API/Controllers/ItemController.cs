@@ -18,7 +18,7 @@ public class ItemController : ControllerBase
         return Ok("Hello world");
     }
     
-    [HttpGet]
+    [HttpGet("")]
     public async Task<IActionResult> GetItems(int id)
     {
         
